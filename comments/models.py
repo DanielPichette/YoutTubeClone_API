@@ -1,6 +1,14 @@
 from django.db import models
 
-# Create your models here.
+
 class Comment(models.Model):
-    comment = models.TextField(max_length=500)
-    liked = models.BooleanField(default=False)
+    video = models.CharField(max_length=50)
+    body = models.TextField(max_length=750)
+    comment_likes = models.IntegerField(default=0)
+    comment_dislikes = models.IntegerField(default=0)
+    reply = models.TextField(max_length=750)
+
+    def __str__(self):
+        return self.Comments.title
+
+
