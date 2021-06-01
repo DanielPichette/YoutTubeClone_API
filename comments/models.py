@@ -12,9 +12,11 @@ class Comment(models.Model):
 
 
 class Reply(models.Model):
-    comment = models.ForeignKey('Comment')
+    comment = models.ForeignKey('Comment', on_delete=models.CASCADE)
     body = models.TextField(max_length=750)
     comment_likes = models.IntegerField(default=0)
     comment_dislikes = models.IntegerField(default=0)
 
+    def __int__(self):
+        return self.comment
 
